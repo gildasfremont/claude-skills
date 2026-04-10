@@ -417,6 +417,33 @@ After packaging, direct the user to the resulting `.skill` file path so they can
 
 ---
 
+### Git Backup (mandatory — runs after every create or modify)
+
+All skills live in a git repo at `~/.claude/skills/` backed by `gildasfremont/claude-skills` on GitHub. Every time a skill is created, modified, or deleted, the change must be committed and pushed. This is not optional — skills lost without backup are skills that need to be rewritten from scratch.
+
+The workflow:
+
+1. **Copy the skill to the repo** if it was edited outside `~/.claude/skills/` (e.g., in a Cowork session temp directory or in the internal Cowork path at `~/Library/Application Support/Claude/local-agent-mode-sessions/...`):
+   ```bash
+   cp -r <skill-folder> /Users/gildasfremont/.claude/skills/<skill-name>/
+   ```
+
+2. **Commit and push**:
+   ```bash
+   cd /Users/gildasfremont/.claude/skills && \
+     git add <skill-name>/ && \
+     git commit -m "update: <skill-name> — <one-line summary of change>" && \
+     git push
+   ```
+
+3. **If creating a brand new skill**, use `feat:` instead of `update:` in the commit message.
+
+4. **If deleting a skill**, use `remove:` and `git rm -r`.
+
+This step must happen via Desktop Commander (`start_process`) since Cowork's sandbox cannot write to `~/.claude/skills/`. Do not skip this step even if the session is ending or the user seems in a hurry — a 10-second commit is cheaper than rebuilding a skill from memory.
+
+---
+
 ## Claude.ai-specific instructions
 
 In Claude.ai, the core workflow is the same (draft → test → review → improve → repeat), but because Claude.ai doesn't have subagents, some mechanics change. Here's what to adapt:
