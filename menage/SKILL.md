@@ -31,7 +31,7 @@ Commencer par un état des lieux complet. Ne pas demander d'autorisation, creuse
 4. Pour `~/Desktop` : lister les sous-dossiers et leur taille, identifier ce qui est du travail en cours vs de l'archive.
 5. Pour `~/Downloads` : lister les fichiers > 50 Mo, identifier les doublons et les installeurs (.dmg, .pkg).
 
-Produire un document de diagnostic complet dans `/Users/gildasfremont/Desktop/Archive pour Drive/diagnostic-menage-YYYY-MM-DD.md` avec tableaux et plan d'action chiffré.
+Produire un document de diagnostic complet dans `~/Desktop/Archive pour Drive/diagnostic-menage-YYYY-MM-DD.md` avec tableaux et plan d'action chiffré.
 
 ### Phase 2 — Classification des projets
 

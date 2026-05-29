@@ -425,12 +425,12 @@ The workflow:
 
 1. **Copy the skill to the repo** if it was edited outside `~/.claude/skills/` (e.g., in a Cowork session temp directory or in the internal Cowork path at `~/Library/Application Support/Claude/local-agent-mode-sessions/...`):
    ```bash
-   cp -r <skill-folder> /Users/gildasfremont/.claude/skills/<skill-name>/
+   cp -r <skill-folder> ~/.claude/skills/<skill-name>/
    ```
 
 2. **Commit and push**:
    ```bash
-   cd /Users/gildasfremont/.claude/skills && \
+   cd ~/.claude/skills && \
      git add <skill-name>/ && \
      git commit -m "update: <skill-name> — <one-line summary of change>" && \
      git push
